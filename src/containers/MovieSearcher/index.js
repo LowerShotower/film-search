@@ -1,28 +1,42 @@
 import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import {MovieInput, MovieList} from '../../components'
-export class MovieSearcher extends Component {
-  static propTypes = {
-    prop: PropTypes
+import { MovieInput, MoviesList } from '../../components';
+import { updateInput, requestMovies } from '../../store/actions';
+import withPreloader from '../../components/hocs/withPreloader';
+
+import './movieSearcher.css';
+
+const MovieListWithPreloader = withPreloader(MoviesList);
+
+class MovieSearcher extends Component {
+
+  handleInputChange = ({ currentTarget: { value } }) => {
+    this.props.updateInput(value);
+    this.props.requestMovies(value);
   }
 
   render() {
+
+    const { moviesList, inputValue, error, isLoading } = this.props;
     return (
-      <div classMame="movieSearcher">
-        <MovieInput/>
-        <MovieList/>
+      <div className="movie-searcher">
+        <MovieInput id="movieInput" onChange={this.handleInputChange} value={inputValue} />
+        <MovieListWithPreloader isLoading={isLoading} moviesList={moviesList} error={error} />
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-
+const mapStateToProps = ({ movies, input }) => ({
+  moviesList: movies.moviesList,
+  inputValue: input.value,
+  error: movies.error,
+  isLoading: movies.isLoading
 })
 
 const mapDispatchToProps = {
-
+  updateInput,
+  requestMovies
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieSearcher)

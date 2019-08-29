@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react';
 import MovieSearcher from './containers/MovieSearcher';
+import Header from "./components/Header";
+import MainContent from './components/MainContent';
 
 const App = () => (
   <Fragment>
-    <MovieSearcher />
+    <Header />
+    <MainContent>
+      <MovieSearcher />
+    </MainContent>
   </Fragment>
 )
 
