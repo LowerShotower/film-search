@@ -16,14 +16,13 @@ export const requestMovies = (movie, page) => dispatch => {
     dispatch(moviesAreLoading(false));
     if (data.Response === 'True') {
       dispatch(updateMoviesError(''));
-      console.log(data.Search)
       dispatch(updateMoviesList(data.Search));
     } else {
-      throw new Error(data.Error);
+      dispatch(updateMoviesError(data.Error));
     }
   }).catch((error) => {
     dispatch(moviesAreLoading(false));
-    dispatch(updateMoviesError(error.message));
+    dispatch(updateMoviesError(''));
   })
 }
 
