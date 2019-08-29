@@ -1,0 +1,8 @@
+.preloader {
+    padding: 10px;
+    display: flex;
+    min-height: 200px;
+    & * {
+        margin: auto;
+    }
+}

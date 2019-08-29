@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './movieItem.css';
+import './movieItem.scss';
 
 const MovieItem = ({ imgUrl, name, imdbID, year, type }) => {
   return (

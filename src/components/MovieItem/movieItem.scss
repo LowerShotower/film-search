@@ -1,0 +1,29 @@
+.movie-item {
+    display: flex;
+    width: 33.3%;
+    min-height: 40px;
+    padding: 5px 0;
+    &__horisontal {
+        flex-direction: row;
+    }
+    &__vertical {
+        flex-direction: column;
+    }
+    & .movie-description {
+        padding: 0 4%;
+        flex: 1 1 auto;
+    }
+    & .movie-poster {
+        width: 30%;
+        flex: 0 0 30%;
+    }
+    & .movie-poster-img {
+        width: 100%;
+    }
+}
+
+@media (max-width:840px) {
+    .movie-item {
+        width: 50%;
+    }
+}

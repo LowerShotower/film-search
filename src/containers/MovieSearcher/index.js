@@ -4,7 +4,7 @@ import { MovieInput, MoviesList } from '../../components';
 import { updateInput, requestMovies } from '../../store/actions';
 import withPreloader from '../../components/hocs/withPreloader';
 
-import './movieSearcher.css';
+import './movieSearcher.scss';
 
 const MovieListWithPreloader = withPreloader(MoviesList);
 
