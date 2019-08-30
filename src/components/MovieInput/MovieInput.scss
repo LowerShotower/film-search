@@ -1,0 +1,12 @@
+.input {
+    max-width: 200px;
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+@media (max-width: 640px) {
+    .input {
+        width: auto;
+    }
+}

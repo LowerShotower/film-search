@@ -2,11 +2,11 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const MovieInput = ({ id, name, ...attrs }) => {
+const MovieInput = ({ id, name, className, ...attrs }) => {
 
   const classes = classNames(
     'input',
-    'className'
+    className
   )
 
   return (
@@ -21,7 +21,7 @@ const MovieInput = ({ id, name, ...attrs }) => {
 }
 
 MovieInput.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   className: PropTypes.string,
 }
 

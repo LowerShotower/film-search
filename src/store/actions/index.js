@@ -1,14 +1,14 @@
 import TYPES from '../types';
 import { fetchMovies } from "../../services/api";
 
-export const updateInput = (value) => {
-  return {
-    type: TYPES.UPDATE_INPUT,
-    payload: {
-      value
-    }
-  }
-};
+export const updateInput = (value) => ({
+  type: TYPES.UPDATE_INPUT,
+  payload: { value }
+});
+
+export const toggleInput = () => ({ type: TYPES.TOGGLE_INPUT, })
+
+export const focusInput = () => ({ type: TYPES.FOCUS_INPUT, })
 
 export const requestMovies = (movie, page) => dispatch => {
   dispatch(moviesAreLoading(true));
@@ -28,21 +28,14 @@ export const requestMovies = (movie, page) => dispatch => {
 
 const updateMoviesList = (moviesList) => ({
   type: TYPES.UPDATE_MOVIES_LIST,
-  payload: {
-    moviesList
-  }
-
+  payload: { moviesList }
 });
 
 const updateMoviesError = (errorMsg) => ({
   type: TYPES.UPDATE_MOVIES_ERROR,
-  payload: {
-    error: errorMsg
-  }
+  payload: { error: errorMsg }
 })
 const moviesAreLoading = (areLoading) => ({
   type: TYPES.MOVIES_ARE_LOADING,
-  payload: {
-    areLoading
-  }
+  payload: { areLoading }
 })

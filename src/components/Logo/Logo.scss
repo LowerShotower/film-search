@@ -1,0 +1,15 @@
+.logo {
+    display: inline-block;
+    padding: 10px 20px;
+    &__text {
+        font-size: 28px;
+        color: white;
+    }
+}
+
+@media (max-width:640px) {
+    .logo {
+        display: block;
+        font-size: 4vw;
+    }
+}
